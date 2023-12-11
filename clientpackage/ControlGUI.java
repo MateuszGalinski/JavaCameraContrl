@@ -28,8 +28,9 @@ public class ControlGUI extends JFrame {
 
         leftButton.addActionListener(e -> socketClient.sendData("RotationA"));
         rightButton.addActionListener(e -> socketClient.sendData("RotationB"));
+        
         try{
-            socketClient = new SocketClient("192.168.100.27", 5000);
+            socketClient = new SocketClient("YOUR IP", 5000);
             new Thread(this::receiveImages).start();
         }
         catch(UnknownHostException e){
